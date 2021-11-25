@@ -35,23 +35,15 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-  let form = document.querySelector("testForm");
-  form.addEventListener("submit", function (event) {
-    let pilotName = String(document.querySelector("input[name=pilotName]"));
-    let copilotName = String(document.querySelector("input[name=copilotName]"));
-    let fuelLevel = Number(document.querySelector("input[name=fuelLevel]"));
-    let cargoMass = Number(document.querySelector("input[name=cargoMass]"));
-    // Checking to make sure the form elements have values
-    if (
-      pilotName.value === "" ||
-      copilotName.value === "" ||
-      fuelLevel.value === "" ||
-      cargoMass.value === ""
-    ) {
-      alert("All fields are required!");
-      event.preventDefault();
-    }
-  });
+  if (
+    pilotName.value === "" ||
+    copilotName.value === "" ||
+    fuelLevel.value === "" ||
+    cargoMass.value === ""
+  ) {
+    alert("All fields are required!");
+    event.preventDefault();
+  }
 }
 
 async function myFetch() {
