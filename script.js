@@ -6,11 +6,18 @@ window.addEventListener("load", function () {
   let copilotName = document.querySelector("input[name=copilotName]");
   let fuelLevel = document.querySelector("input[name=fuelLevel]");
   let cargoMass = document.querySelector("input[name=cargoMass]");
-  let list = document.querySelector("faultyItems");
+  let list = document.querySelector("#faultyItems");
 
-  form.addEventListener("submit", () =>
-    formSubmission(document, list, pilotName, copilotName, fuelLevel, cargoMass)
-  );
+  form.addEventListener("submit", function (event) {
+    formSubmission(
+      document,
+      list,
+      pilotName,
+      copilotName,
+      fuelLevel,
+      cargoMass
+    );
+  });
 
   let listedPlanets;
   // Set listedPlanetsResponse equal to the value returned by calling myFetch()
