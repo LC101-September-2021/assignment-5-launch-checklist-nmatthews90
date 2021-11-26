@@ -25,23 +25,39 @@ function addDestinationInfo(
 }
 
 function validateInput(testInput) {
-  if (!isNaN(testInput)) {
-    return "Is a Number";
+  if (testInput === "") {
+    return "Empty";
   } else if (isNaN(testInput)) {
     return "Not a Number";
-  } else if (testInput === "") {
-    return "Empty";
+  } else if (!isNaN(testInput)) {
+    return "Is a Number";
   }
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   if (
-    pilotName.value === "" ||
-    copilotName.value === "" ||
-    fuelLevel.value === "" ||
-    cargoMass.value === ""
+    validateInput(pilot.value) === "Empty" ||
+    validateInput(copilot.value) === "Empty" ||
+    validateInput(fuelLevel.value) === "Empty" ||
+    validateInput(cargoLevel.value) === "Empty"
   ) {
     alert("All fields are required!");
+    event.preventDefault();
+  }
+
+  if (
+    validateInput(fuelLevel.value) === "Not a Number" ||
+    validateInput(cargoLevel.value) === "Not a Number"
+  ) {
+    alert("Fuel Level and Cargo Level has to be a Number");
+    event.preventDefault();
+  }
+
+  if (
+    validateInput(pilot.value) === "Is a Number" ||
+    validateInput(copilot.value) === "Is a Number"
+  ) {
+    alert("Pilot and Copilot can not be a Number");
     event.preventDefault();
   }
 }
