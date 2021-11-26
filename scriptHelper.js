@@ -114,7 +114,10 @@ async function myFetch() {
   return planetsReturned;
 }
 
-function pickPlanet(planets) {}
+function pickPlanet(planets) {
+  let randomPlanet = Math.round(Math.random() * planets.length);
+  return randomPlanet;
+}
 
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
