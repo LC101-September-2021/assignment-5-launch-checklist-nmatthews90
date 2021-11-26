@@ -47,17 +47,11 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
   if (
     validateInput(fuelLevel.value) === "Not a Number" ||
-    validateInput(cargoLevel.value) === "Not a Number"
-  ) {
-    alert("Fuel Level and Cargo Level has to be a Number");
-    event.preventDefault();
-  }
-
-  if (
+    validateInput(cargoLevel.value) === "Not a Number" ||
     validateInput(pilot.value) === "Is a Number" ||
     validateInput(copilot.value) === "Is a Number"
   ) {
-    alert("Pilot and Copilot can not be a Number");
+    alert("Make sure to enter valid information for each field");
     event.preventDefault();
   }
 }
