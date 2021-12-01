@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
 
   form.addEventListener("submit", function (event) {
     formSubmission(
-      document,
+      window.document,
       list,
       pilotName,
       copilotName,
