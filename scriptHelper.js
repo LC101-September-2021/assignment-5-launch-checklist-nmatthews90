@@ -57,6 +57,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   ) {
     alert("Make sure to enter valid information for each field");
   } else {
+    list.style.visibility = "visible";
     pilotStatus.textContent = `Pilot ${pilot.value} is ready for launch`;
     copilotStatus.textContent = `Co-pilot ${copilot.value} is ready for launch`;
 
@@ -75,11 +76,9 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
 
     if (ready) {
-      list.style.visibility = "visible";
       launchStatus.style.color = "rgb(65, 159, 106)";
       launchStatus.textContent = "Shuttle is Ready for Launch";
     } else {
-      list.style.visibility = "visible";
       launchStatus.style.color = "rgb(199, 37, 78)";
       launchStatus.textContent = "Shuttle Not Ready for Launch";
     }
@@ -101,8 +100,7 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
-  let randomPlanet = Math.round(Math.random() * planets.length);
-  return randomPlanet;
+  return (randomPlanet = Math.round(Math.random() * planets.length));
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
