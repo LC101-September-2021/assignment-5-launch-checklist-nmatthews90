@@ -2,21 +2,40 @@
 
 window.addEventListener("load", function () {
   let form = document.querySelector("form");
-  let pilotName = document.querySelector("input[name=pilotName]");
-  let copilotName = document.querySelector("input[name=copilotName]");
-  let fuelLevel = document.querySelector("input[name=fuelLevel]");
-  let cargoMass = document.querySelector("input[name=cargoMass]");
-  let list = document.querySelector("#faultyItems");
 
   form.addEventListener("submit", function (event) {
-    formSubmission(
-      window.document,
-      list,
-      pilotName,
-      copilotName,
-      fuelLevel,
-      cargoMass
-    );
+    let pilotName = document.querySelector("input[name=pilotName]");
+    let copilotName = document.querySelector("input[name=copilotName]");
+    let fuelLevel = document.querySelector("input[name=fuelLevel]");
+    let cargoMass = document.querySelector("input[name=cargoMass]");
+    let list = document.querySelector("#faultyItems");
+
+    if (
+      validateInput(pilotName.value) === "Empty" ||
+      validateInput(copilotName.value) === "Empty" ||
+      validateInput(fuelLevel.value) === "Empty" ||
+      validateInput(cargoMass.value) === "Empty"
+    ) {
+      alert("All fields are required!");
+      event.preventDefault();
+    } else if (
+      validateInput(fuelLevel.value) === "Not a Number" ||
+      validateInput(cargoMass.value) === "Not a Number" ||
+      validateInput(pilotName.value) === "Is a Number" ||
+      validateInput(copilotName.value) === "Is a Number"
+    ) {
+      alert("Make sure to enter valid information for each field");
+      event.preventDefault();
+    } else {
+      formSubmission(
+        window.document,
+        list,
+        pilotName,
+        copilotName,
+        fuelLevel,
+        cargoMass
+      );
+    }
   });
 
   let listedPlanets;
